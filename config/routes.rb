@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources "sessions"
   resources "users"
 
-  delete "/logout", to: "sessions#destroy"
-  get "/login", to: "sessions#new"
-  post "/sessions", to: "sessions#create"
+  get("/login", {:controller => "sessions", :action => "new"})
+  get("/logout", {:controller => "sessions", :action => "destroy"})
+  post("/sessions", {:controller => "sessions", :action => "create"})
 end
