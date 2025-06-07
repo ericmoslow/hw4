@@ -1,5 +1,8 @@
-<h1>New Entry</h1>
+<h1 class="text-center mt-4">New Entry</h1>
 
+<div class="container mt-4">
+<div class="card shadow-sm">
+<div class="card-body">
 <form action="/entries" method="post" enctype="multipart/form-data" class="mt-4">
   <input type="hidden" name="place_id" value="<%= params["place_id"] %>">
 
@@ -20,7 +23,7 @@
 
    <div class="mb-3">
     <label for="image_input" class="form-label">Upload Image</label>
-    <input type="file" name="entry[image]" id="image_input" class="form-control">
+    <input type="file" name="entry[image]" id="image_input" class="form-control" accept="image/png, image/jpg, image/jpeg, image/gif">
   </div>
 
  <div class="text-center">
