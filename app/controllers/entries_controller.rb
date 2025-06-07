@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-    before_action :authenticate_user
+  before_action :authenticate_user
 
   def new
   end
@@ -11,7 +11,7 @@ class EntriesController < ApplicationController
     @entry["occurred_on"] = params["occurred_on"]
     @entry["place_id"] = params["place_id"]
     @entry["user_id"] = session["user_id"]
-    @entry.uploaded_image.attach(params["uploaded_image"])
+    @entry.image.attach(params[:entry][:image]) if params[:entry] && params[:entry][:image]
     @entry.save
     redirect_to "/places/#{@entry['place_id']}"
   end
