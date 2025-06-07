@@ -15,6 +15,12 @@
               <h5 class="card-title"><%= entry["title"] %></h5>
               <h6 class="card-subtitle text-muted mb-3"><%= entry["occurred_on"] %></h6>
 
+   <% if entry.uploaded_image.attached? %>
+                <div class="mb-3">
+                  <%= image_tag entry.uploaded_image, class: "img-fluid rounded", style: "max-height: 200px; object-fit: cover; width: 100%;" %>
+                </div>
+              <% end %>
+
               <p class="card-text"><%= entry["description"] %></p>
             </div>
           </div>
