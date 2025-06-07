@@ -15,10 +15,18 @@
     </div>
     <div>
       <a href="/">Home</a>
-      <a href="/logout">Logout</a>
-      <a href="/login">Login</a>
-      <a href="/users/new">Signup</a>
-    </div>
+  
+  <% if @current_user %>
+    Logged in as: <%= @current_user.username %>  
+    <form action="/logout" method="post" style="display: inline;">
+      <input type="hidden" name="_method" value="delete">Add commentMore actions
+      <button type="submit">Logout</button>
+    </form>
+  <% else %>
+    <a href="/login">Login</a>
+    <a href="/users/new">Signup</a>
+  <% end %>
+</div>
 
     <%= yield %>
   </body>
